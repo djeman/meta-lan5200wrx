@@ -18,4 +18,4 @@ S = "${WORKDIR}/git"
 
 LINUX_VERSION ?= "4.9.170"
 
-COMPATIBLE_MACHINE = "(medianav1|medianav2)"
+COMPATIBLE_MACHINE = "(medianav)"
