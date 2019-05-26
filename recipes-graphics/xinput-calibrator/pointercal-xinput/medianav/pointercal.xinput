@@ -1,0 +1,2 @@
+xinput set-int-prop "max11803_ts" "Evdev Axis Calibration" 32 18246 45052 5953 23747
+xinput set-int-prop "max11803_ts" "Evdev Axes Swap" 8 0
