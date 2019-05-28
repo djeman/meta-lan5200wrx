@@ -1,0 +1,27 @@
+diff -rupN gtk+-3.22.30_ori/gdk/gdkseatdefault.c gtk+-3.22.30/gdk/gdkseatdefault.c
+--- gtk+-3.22.30_ori/gdk/gdkseatdefault.c	2017-11-16 14:21:24.000000000 +0100
++++ gtk+-3.22.30/gdk/gdkseatdefault.c	2019-05-28 13:38:06.337461602 +0200
+@@ -132,22 +132,9 @@ gdk_seat_default_grab (GdkSeat
+ 
+   if (capabilities & GDK_SEAT_CAPABILITY_ALL_POINTING)
+     {
+-      /* ALL_POINTING spans 3 capabilities; get the mask for the ones we have */
+-      GdkEventMask pointer_evmask = 0;
+-
+-      /* We let tablet styli take over the pointer cursor */
+-      if (capabilities & (GDK_SEAT_CAPABILITY_POINTER |
+-                          GDK_SEAT_CAPABILITY_TABLET_STYLUS))
+-        {
+-          pointer_evmask |= POINTER_EVENTS;
+-        }
+-
+-      if (capabilities & GDK_SEAT_CAPABILITY_TOUCH)
+-        pointer_evmask |= TOUCH_EVENTS;
+-
+       status = gdk_device_grab (priv->master_pointer, window,
+                                 GDK_OWNERSHIP_NONE, owner_events,
+-                                pointer_evmask, cursor,
++                                POINTER_EVENTS, cursor,
+                                 evtime);
+     }
+ 
